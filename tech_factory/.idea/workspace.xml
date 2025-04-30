@@ -5,6 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cf5828f-e957-422c-88e4-3ea86acb6b8d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../task5/Character.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../task5/Director.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../task5/builders/CharacterBuilder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../task5/builders/EnemyBuilder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../task5/builders/HeroBuilder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../task5/builders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../task5/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,19 +39,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lab2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "lab2",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/labs_kpz/KPZ/KPZ/lab2/tech_factory",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\labs_kpz\KPZ\KPZ\lab2\task2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\labs_kpz\KPZ\KPZ\lab2\task2" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -61,6 +80,8 @@
       <updated>1745837162493</updated>
       <workItem from="1745837163900" duration="1351000" />
       <workItem from="1745838742521" duration="35000" />
+      <workItem from="1745843461496" duration="121000" />
+      <workItem from="1745843585886" duration="654000" />
     </task>
     <servers />
   </component>

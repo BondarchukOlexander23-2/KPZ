@@ -1,4 +1,4 @@
-from light_element_node import LightElementNode, DisplayType, ClosingType
+from light_element_node import LightElementNode
 from light_text_node import LightTextNode
 
 

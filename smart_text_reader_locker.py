@@ -1,5 +1,5 @@
 import re
-from task4.text_reader import TextReader
+from text_reader import TextReader
 
 
 class SmartTextReaderLocker(TextReader):

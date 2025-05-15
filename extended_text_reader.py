@@ -1,5 +1,4 @@
 from text_reader import TextReader
-from bs4 import BeautifulSoup
 import re
 
 
@@ -10,7 +9,7 @@ class SmartIterableTextReader(TextReader):
     """
 
     def __init__(self):
-        from document_iterator import IterableDocument
+        from iterable_document import IterableDocument
         self.IterableDocument = IterableDocument
 
     def read_text_file(self, filename):

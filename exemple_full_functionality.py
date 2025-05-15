@@ -1,5 +1,6 @@
-from document_iterator import IterableDocument
+from document_iterator import DocumentIterator
 from extended_text_reader import SmartIterableTextReader
+from iterable_document import IterableDocument
 from smart_text_checker import SmartTextChecker
 from smart_text_reader_locker import SmartTextReaderLocker
 import re

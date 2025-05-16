@@ -1,43 +1,27 @@
-from smart_text_reader import SmartTextReader
-from smart_text_checker import SmartTextChecker
-from smart_text_reader_locker import SmartTextReaderLocker
+from elements import Element
+from state import HiddenState, DisabledState, LoadingState, VisibleState
 
+root = Element("div")
+header = Element("h1", "Заголовок сторінки")
+button = Element("button", "Натисни мене")
+loader = Element("span")
 
-def create_test_files():
+root.add_child(header)
+root.add_child(button)
+root.add_child(loader)
 
-    with open("test.txt", "w", encoding="utf-8") as f:
-        f.write("Привіт, світ\n")
-        f.write("Це тестовий файл\n")
-        f.write("для перевірки SmartTextReader")
+print("=== Видимий стан ===")
+root.render()
 
-    with open("system.log", "w", encoding="utf-8") as f:
-        f.write("Це лог-файл з обмеженим доступом\n")
-        f.write("ERROR: Помилка підключення\n")
-        f.write("INFO: Сервер запущено")
+print("\n=== Кнопка неактивна ===")
+button.set_state(DisabledState())
+root.render()
 
+print("\n=== Увесь контейнер приховано ===")
+root.propagate_state(HiddenState())
+root.render()
 
-def main():
-    create_test_files()
-
-    base_reader = SmartTextReader()
-
-    logger_reader = SmartTextChecker(base_reader)
-
-    restricted_reader = SmartTextReaderLocker(logger_reader, r'\.log$')
-
-    print("\nТест 1: Звичайний файл")
-    content = restricted_reader.read_text_file("test.txt")
-    if content:
-        print("Вміст як двомірний масив:")
-        for row in content:
-            print(row)
-
-    print("\nТест 2: Обмежений файл")
-    restricted_reader.read_text_file("system.log")
-
-    print("\nТест 3: Файл, якого не існує")
-    restricted_reader.read_text_file("non_existent.txt")
-
-
-if __name__ == "__main__":
-    main()
+print("\n=== Завантаження тільки спана ===")
+loader.set_state(LoadingState())
+root.set_state(VisibleState())
+root.render()

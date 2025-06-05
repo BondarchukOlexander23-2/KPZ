@@ -21,6 +21,7 @@ class LightElementNode(LightNode):
         self.css_classes = []
         self.children = []
         self.attributes = {}
+        self.event_listeners = {}  # New dictionary to store event listeners
 
     def add_class(self, css_class):
         if css_class not in self.css_classes:
@@ -41,6 +42,65 @@ class LightElementNode(LightNode):
         self.add_child(LightTextNode(text))
         return self
 
+    # New method to add event listeners
+    def add_event_listener(self, event_type, callback_function):
+        """
+        Adds an event listener to the element for a specified event type
+
+        Args:
+            event_type (str): The event type to listen for (e.g., "click", "mouseover", etc.)
+            callback_function (callable): The function to execute when the event occurs
+
+        Returns:
+            LightElementNode: The current element for method chaining
+        """
+        if event_type not in self.event_listeners:
+            self.event_listeners[event_type] = []
+
+        self.event_listeners[event_type].append(callback_function)
+        return self
+
+    # New method to trigger events
+    def trigger_event(self, event_type, event_data=None):
+        """
+        Triggers all callbacks registered for the specified event type
+
+        Args:
+            event_type (str): The event type to trigger
+            event_data (dict, optional): Data to pass to the callback functions
+
+        Returns:
+            bool: True if at least one event was triggered, False otherwise
+        """
+        if event_type in self.event_listeners and self.event_listeners[event_type]:
+            for callback in self.event_listeners[event_type]:
+                callback(self, event_data)
+            return True
+        return False
+
+    # New method to remove event listeners
+    def remove_event_listener(self, event_type, callback_function=None):
+        """
+        Removes an event listener or all listeners for a specified event type
+
+        Args:
+            event_type (str): The event type to remove the listener(s) from
+            callback_function (callable, optional): The specific callback to remove.
+                              If None, removes all callbacks for the event type.
+
+        Returns:
+            LightElementNode: The current element for method chaining
+        """
+        if event_type in self.event_listeners:
+            if callback_function is None:
+                self.event_listeners[event_type] = []
+            else:
+                self.event_listeners[event_type] = [
+                    cb for cb in self.event_listeners[event_type]
+                    if cb != callback_function
+                ]
+        return self
+
     def get_child_count(self):
         return len(self.children)
 
@@ -53,6 +113,12 @@ class LightElementNode(LightNode):
 
         for attr_name, attr_value in self.attributes.items():
             result += f' {attr_name}="{attr_value}"'
+
+        # Add event listeners as inline JS (for HTML output)
+        for event_type, callbacks in self.event_listeners.items():
+            if callbacks:  # Only add if there are callbacks
+                # For HTML output, we just show that there's a listener attached
+                result += f' on{event_type}="/* Event listener attached */"'
 
         if self.closing_type == ClosingType.SELF_CLOSING:
             result += " />"
